@@ -10,12 +10,34 @@
 
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
+    <!-- Header -->
     <div class="container-fluid">
         <div class="row navbar navbar-dark bg-dark">
             <div class="col-12 text-center">
                 <h1>Weather Dashboard</h1>
+            </div>
         </div>
+        <!-- Search Results Section -->
+        <div class="row">
+            <div class="col-3 bg-light pb-2 pt-3" id="searchResults">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>Search for a city:</h4>
+                    </div>
+                </div>
+                <!-- Entry section -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-group">
+                            <input class="form-control" type="text" id="cityEntry"
+                                placeholder="Enter city to view weather"><button type="button" id="searchBtn"
+                                class="btn btn-primary"></button>
+                        </div>
+                    </div>
+                </div>
+    
     </div>
 
     <!-- scripts -->
