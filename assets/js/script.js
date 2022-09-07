@@ -19,6 +19,7 @@ function currentCityWeather(city) {
         var iconCode = cityWeatherResponse.weather[0].icon;
         var iconURL = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
+        // display current weather
         var currentCity = $(`
             <h2 id="currentCity">
                 ${cityWeatherResponse.name} ${today} <img src="${iconURL}" alt="${cityWeatherResponse.weather[0].description}" />
@@ -28,6 +29,18 @@ function currentCityWeather(city) {
             <p>Wind Speed: ${cityWeatherResponse.wind.speed} MPH</p>
         `);
         $("#cityDetail").append(currentCity);
+
+        // add UV index
+        var lat = cityWeatherResponse.coord.lat;
+        var lon = cityWeatherResponse.coord.lon;
+        var uviQueryURL = `https://api.openweathermap.org/data/2.5/uvi?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+
+        $.ajax({
+            url: uviQueryURL,
+            method: 'GET'
+        }).then(function(uviResponse) {
+            console.log(uviResponse);
+        });
     });
 }
 
