@@ -39,6 +39,8 @@ function currentCityWeather(city) {
 
             $("#cityDetail").append(uvIndexEl);
 
+            fiveDayConditions(lat, lon);
+
             if (uvIndex >= 0 && uvIndex <= 2) {
             $("#uvIndexColor").css("background-color", "#3EA72D").css("color", "white");
             } else if (uvIndex >= 3 && uvIndex <= 5) {
@@ -51,6 +53,19 @@ function currentCityWeather(city) {
             $("#uvIndexColor").css("background-color", "#B567A4").css("color", "white"); 
             };  
         });
+    });
+}
+
+// 5 day conditions
+function fiveDayConditions(lat, lon) {
+    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey + "";
+
+    $.ajax({
+        url: fiveDayURL,
+        method: 'GET'
+    }).then(function(fiveDayResponse) {
+        console.log(fiveDayResponse);
+        $("#fiveDay").empty();
     });
 }
 
