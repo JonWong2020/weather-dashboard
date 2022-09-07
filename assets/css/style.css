@@ -1,3 +1,7 @@
+body {
+    background-color:  rgb(153, 192, 170);
+}
+
 h1 {
     font-size: 50px;
     color: whitesmoke;
@@ -5,4 +9,13 @@ h1 {
 
 #weatherContent {
     display: none;
+}
+
+#searchResults,
+#cityDetail {
+    background-color: rgb(124, 143, 126)!important;
+}
+
+#searchResults {
+    height: 100vh;
 }
