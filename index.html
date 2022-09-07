@@ -33,16 +33,39 @@
                         <div class="input-group">
                             <input class="form-control" type="text" id="cityEntry"
                                 placeholder="Enter city to view weather"><button type="button" id="searchBtn"
-                                class="btn btn-primary"></button>
+                                class="btn btn-primary"><i class="fas fa-search-plus"></i></button>
                         </div>
                     </div>
                 </div>
+                <!-- Search history list -->
+                <div class="row mt-3">
+                    <div class="col-12">
+                        <ul id="searchHistory" class="list-group">
+                            <!-- append li thru JS -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- City display -->
+            <div id="weatherContent" class="col-9 pb-4 pt-4">
+                <div class="row pb-3 mr-2 ml-2">
+                    <div id="cityDetail" class="col-12 border rounded p-3">
+                        <!-- show current city w/text -->
+                    </div>
+                </div>
+                <!-- 5 day forecast display -->
+                <div id="fiveDay" class="row pl-2">
+                <!-- add 5 day forecast -->
+                </div>
+            </div>
+        </div>
     
     </div>
 
     <!-- scripts -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/71f84b8806.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
