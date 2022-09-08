@@ -6,7 +6,7 @@ A weather dashboard made from HTML, CSS, BootStrap, JQuery, JQuery UI, OneWeathe
 
 ## Links
 
-Live Site: 
+Live Site: https://jonwong2020.github.io/weather-dashboard/
 
 Repo:  https://github.com/JonWong2020/weather-dashboard
 
