@@ -58,7 +58,7 @@ function currentCityWeather(city) {
 
 // 5 day conditions
 function fiveDayConditions(lat, lon) {
-    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + apiKey + "";
+    var fiveDayURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=hourly&appid=" + apiKey + "";
 
     $.ajax({
         url: fiveDayURL,
@@ -66,6 +66,24 @@ function fiveDayConditions(lat, lon) {
     }).then(function(fiveDayResponse) {
         console.log(fiveDayResponse);
         $("#fiveDay").empty();
+
+        var fiveDayForecast = fiveDayResponse.list;
+        console.log(fiveDayForecast);
+        for (var i=5; i < fiveDayForecast.length; i=i+8) {
+            var dailyForecast = fiveDayForecast[i];
+            var cityInfo = {
+            date: dailyForecast.dt,
+            icon: dailyForecast.weather[0].icon,
+            temp: dailyForecast.main.temp,
+            humidity: dailyForecast.main.humidity,
+        };
+
+        var currentDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+        var iconURL = '<img src="https://openweathermap.org/img/wn/' + cityInfo.icon + '.png"' + ' ' + 'alt="' + dailyForecast.weather[0].main + '"/>'
+
+        var fiveDayCard = $('<div class="pl-3"><div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;><div class="card-body"><h5>'+ currentDate + '</h5><p>'+iconURL+'</p><p>Temp:'+ ' ' + cityInfo.temp + '°F</p><p>Humidity: '+ ' ' + cityInfo.humidity + '\%</p></div></div></div>');
+        $('#fiveDay').append(fiveDayCard)
+        }
     });
 }
 
