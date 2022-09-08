@@ -12,6 +12,8 @@ Repo:  https://github.com/JonWong2020/weather-dashboard
 
 ## Screenshot
 
+![weatherdashboard](https://user-images.githubusercontent.com/110364895/189038984-fa1d80c6-7b54-4774-ad4d-6e30d10c3065.gif)
+
 ## License
 
 Please refer to the LICENSE in the repo.
