@@ -109,3 +109,15 @@ $(document).on("click", ".list-group-item", function() {
     var listCity = $(this).text();
     currentCityWeather(listCity);
 });
+
+// pull forcast from last searched city event listener
+$(document).ready(function() {
+    var searchHistoryArr = JSON.parse(localStorage.getItem("city"));
+
+    if (searchHistoryArr !== null) {
+        var lastSearchedIndex = searchHistoryArr.length - 1;
+        var lastSearchedCity = searchHistoryArr[lastSearchedIndex];
+        currentCityWeather(lastSearchedCity);
+        console.log("Last searched city:" + " " + lastSearchedCity + "");
+    }
+});
