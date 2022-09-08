@@ -12,10 +12,15 @@ h1 {
 }
 
 #searchResults,
-#cityDetail {
+#cityDetail,
+.card {
     background-color: rgb(124, 143, 126)!important;
 }
 
 #searchResults {
     height: 100vh;
+}
+
+#fiveDay .card {
+    border: 1px solid whitesmoke!important;
 }

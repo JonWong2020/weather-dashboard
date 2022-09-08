@@ -81,7 +81,8 @@ function fiveDayConditions(lat, lon) {
         var currentDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
         var iconURL = '<img src="https://openweathermap.org/img/wn/' + cityInfo.icon + '.png"' + ' ' + 'alt="' + dailyForecast.weather[0].main + '"/>'
 
-        var fiveDayCard = $('<div class="pl-3"><div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem;><div class="card-body"><h5>'+ currentDate + '</h5><p>'+iconURL+'</p><p>Temp:'+ ' ' + cityInfo.temp + '°F</p><p>Humidity: '+ ' ' + cityInfo.humidity + '\%</p></div></div></div>');
+        // display 5 day forecast 
+        var fiveDayCard = $('<div class="pl-3 col-2"><div class="card pl-3 pt-3 mb-3 bg-primary text-light" style="width: 12rem";><div class="card-body"><h5>'+ currentDate + '</h5><p>'+iconURL+'</p><p>Temp:'+ ' ' + cityInfo.temp + '°F</p><p>Humidity: '+ ' ' + cityInfo.humidity + '\%</p></div></div></div>');
         $('#fiveDay').append(fiveDayCard)
         }
     });
@@ -101,4 +102,10 @@ $('#searchBtn').on("click", function(event){
 
     localStorage.setItem("city", JSON.stringify(searchHistoryList));
     console.log(searchHistoryList);
+});
+
+// pull city forecast in list event listener
+$(document).on("click", ".list-group-item", function() {
+    var listCity = $(this).text();
+    currentCityWeather(listCity);
 });
